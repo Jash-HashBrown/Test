@@ -13,6 +13,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/getuser", (req, res) => {
-  const { username, password } = req.body;
-  res.send({ username, password });
+  res.send({ status: 1, message: "called successful" });
 });
