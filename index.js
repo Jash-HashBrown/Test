@@ -13,5 +13,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/getuser", (req, res) => {
-  res.send({ status: 1, message: "successful" });
+  res.send({ status: 1, message: "We are up! Baby" });
 });
