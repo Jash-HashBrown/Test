@@ -22,4 +22,4 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh jash_acharya_24@35.200.178.15 "cd ~/Test && git pull origin main && npm install && pm2 start /home/jash_acharya_24/Test/index.js --name index"
+          ssh jash_acharya_24@35.200.178.15 "cd ~/Test && git pull origin main && npm install && pm2 start index.js --name index"
