@@ -13,13 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup SSH
+      - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.GCP_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.GCP_HOST }} >> ~/.ssh/known_hosts
+          echo "${{ secrets.GCP_HOSTS }}" > ~/.ssh/known_hosts
 
       - name: Deploy via SSH
         run: |
-          ssh ${{ secrets.GCP_USER }}@${{ secrets.GCP_HOST }} "cd ~/Test && git pull origin main && npm install && pm2 restart index.js || pm2 start index.js"
+          ssh jash_acahrya_24@35.200.178.15 "cd ~/Test && git pull origin main && npm install && pm2 restart index.js || pm2 start index.js"
